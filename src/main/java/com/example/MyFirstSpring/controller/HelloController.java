@@ -1,10 +1,7 @@
 package com.example.MyFirstSpring.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.example.MyFirstSpring.model.Message;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -23,6 +20,11 @@ public class HelloController {
     public String sayHellopath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
     }
+    @PostMapping("post")
+    public String greetWithRequestBody(@RequestBody Message names){
+        return "Hello, "+names.getFirstName()+" "+names.getLastName();
+    }
+
 }
 
 
